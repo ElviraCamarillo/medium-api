@@ -2,7 +2,7 @@
 const Post = require('../models/post')
 
 function getAll () {
-  return Post.find()
+  return Post.find().sort({ date: 'descending' })
 }
 
 function create (postData) {
