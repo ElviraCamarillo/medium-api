@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
-const secret = 'kodemia'
+const { JWT_SECRET } = process.env
 
 function sign (payload = {}) {
-  return jwt.sign(payload, secret)
+  return jwt.sign(payload, JWT_SECRET)
 }
 
 function verify (token = ' ') {
-  return jwt.verify(token, secret)
+  return jwt.verify(token, JWT_SECRET)
 }
 
 module.exports = {

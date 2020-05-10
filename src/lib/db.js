@@ -1,11 +1,14 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-const dbUser = 'devElvira'
-const dbPassword = 'E1v1ra.1'
-const dbHost = 'kodemiaseptimageneracion-o1w40.mongodb.net'
-const dbName = 'medium'
+const {
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_NAME
+} = process.env
 
-const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`
+const url = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
 
 function connect () {
   return mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
