@@ -4,7 +4,7 @@ const dataBase = require('./src/lib/db')
 async function main () {
   await dataBase.connect()
   console.log('Data Base Connected :)')
-  server.listen(8081, () => {
+  server.listen(8080, () => {
     console.log('Server is running')
   })
 }
